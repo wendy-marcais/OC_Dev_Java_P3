@@ -69,7 +69,7 @@ public class Human extends Player {
     }
 
     @Override
-    // For Defender and Duel modes -> save the human combination in the variable chooseCombination
+    // For Defender and Duel modes -> answer given in a string
     public String answerToNewCombinationProposition(String chooseCombination, String proposition ) {
         System.out.println("Votre combinaison : " + chooseCombination);
         System.out.print("Votre réponse : ");

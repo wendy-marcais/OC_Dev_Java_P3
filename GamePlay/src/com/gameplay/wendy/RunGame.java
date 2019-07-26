@@ -76,7 +76,7 @@ public class RunGame {
     }
 
     /**
-     * Display the modes in the method askChosenModes
+     * Display the modes in the method askChosenModes, first menu with modes choice
      * @return the different modes
      */
     private int offerFirstMenuChoiceToUser() {
@@ -85,7 +85,7 @@ public class RunGame {
         return askChosenMode(modes);
     }
     /**
-     * Display the modes in the method askChosenMode
+     * Display the modes in the method askChosenMode, second menu : play again, play same mode, quit
      * @return the different modes
      */
     private int offerSecondMenuChoiceToUser() {
