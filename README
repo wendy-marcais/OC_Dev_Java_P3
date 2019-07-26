@@ -1,0 +1,11 @@
+-> pour compiler et lancer l'application via le terminal:
+- ouvrir le terminal
+- se mettre dans le répertoire du projet
+
+-> Compilation :
+- saisir la ligne de commande suivante : javac Main.java 
+
+-> Exécution :
+- saisir la ligne de commande suivante à la suite de la précédente : java Main
+OU
+- ouvrir son projet, se placer dans la classe Main.java puis Run 'Main.main()';
