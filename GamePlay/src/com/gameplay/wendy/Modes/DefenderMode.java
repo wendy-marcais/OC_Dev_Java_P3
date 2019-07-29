@@ -7,6 +7,9 @@ import com.gameplay.wendy.Players.Player;
 
 import java.io.IOException;
 
+/**
+ * Defender Mode
+ */
 public class DefenderMode implements PlayMode {
 
     // Class variables
@@ -23,6 +26,9 @@ public class DefenderMode implements PlayMode {
 
     }
 
+    /**
+     * @throws IOException
+     */
     @Override
     public void play() throws IOException {
         // Register human combination

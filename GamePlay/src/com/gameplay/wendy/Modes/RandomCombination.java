@@ -2,8 +2,14 @@ package com.gameplay.wendy.Modes;
 
 import java.util.Random;
 
+/**
+ * Random combination
+ */
 public final class RandomCombination {
 
+    /**
+     * @return random combination in string format
+     */
     public static String generate() {
         // Load a combination with java.util.Random class
         Random rand = new Random();

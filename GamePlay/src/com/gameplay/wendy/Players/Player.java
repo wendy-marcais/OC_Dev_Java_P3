@@ -2,6 +2,9 @@ package com.gameplay.wendy.Players;
 
 import java.io.IOException;
 
+/**
+ * abstract class which define players methods
+ */
 public abstract class Player {
 
     public abstract String chooseCombination() throws IOException;

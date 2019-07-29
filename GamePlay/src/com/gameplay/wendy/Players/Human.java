@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Human player
+ */
 public class Human extends Player {
 
     // Class variables
@@ -18,10 +21,15 @@ public class Human extends Player {
         property = new GamePlayGetPropertyValues();
     }
 
+    /**
+     * @return chooseCombination
+     * @throws IOException
+     */
     @Override
     // For Defender and Duel modes -> save the human combination in the variable chooseCombination
     public String chooseCombination() throws IOException {
         String chooseCombination = null;
+        // chosenComb...
 
         boolean responseIsGood;
         do {
@@ -39,10 +47,14 @@ public class Human extends Player {
                 System.out.print("\n-> Votre combinaison n'est pas valide !");
             }
         } while (!responseIsGood);
-
         return chooseCombination;
     }
 
+    /**
+     * @param answer equal what the human has written
+     * @return chooseCombination
+     * @throws IOException
+     */
     @Override
     // For Challenger and Duel modes -> save the human proposition in the variable chooseCombination
     public String proposeNewCombination(String answer) throws IOException {
@@ -64,16 +76,19 @@ public class Human extends Player {
                 System.out.print("\n-> Votre proposition doit être composée de " + property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
             }
         } while (!responseIsGood);
-
         return chooseCombination;
     }
 
+    /**
+     * @param chooseCombination equal the human chosen combination
+     * @param proposition equal to the computer proposal
+     * @return
+     */
     @Override
     // For Defender and Duel modes -> answer given in a string
     public String answerToNewCombinationProposition(String chooseCombination, String proposition ) {
         System.out.println("Votre combinaison : " + chooseCombination);
         System.out.print("Votre réponse : ");
-
         return scanner.next();
     }
 }

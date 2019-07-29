@@ -7,6 +7,9 @@ import com.gameplay.wendy.Players.Player;
 
 import java.io.IOException;
 
+/**
+ * Challenger Mode
+ */
 public class ChallengerMode implements PlayMode {
 
     // Class variables
@@ -15,6 +18,9 @@ public class ChallengerMode implements PlayMode {
     private Player computer;
     private GamePlayGetPropertyValues property;
 
+    /**
+     * @throws IOException
+     */
     // Constructor
     public ChallengerMode() throws IOException {
         human = new Human();
@@ -23,6 +29,9 @@ public class ChallengerMode implements PlayMode {
         property = new GamePlayGetPropertyValues();
     }
 
+    /**
+     * @throws IOException
+     */
     @Override
     public void play() throws IOException {
         // if dev mode is active

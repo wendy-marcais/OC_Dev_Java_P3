@@ -9,13 +9,19 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class RunGame {
+/**
+ * RunGame that defines menus related to human choice
+ */
+class RunGame {
     private Scanner scanner;
     private String ruleGo;
     private String ruleHumanAnswer;
     private String ruleComputerAnswer;
     private String ruleDigits;
 
+    /**
+     * @throws IOException
+     */
     // Constructor
     RunGame() throws IOException {
         scanner = new Scanner(System.in);
@@ -84,6 +90,7 @@ public class RunGame {
                 "tentez de piéger l'IA !", "Duel : Trouvez la bonne combinaison avant l'IA !\n"};
         return askChosenMode(modes);
     }
+
     /**
      * Display the modes in the method askChosenMode, second menu : play again, play same mode, quit
      * @return the different modes
@@ -92,6 +99,7 @@ public class RunGame {
         String[] modes = {"Rejouer le même mode", "Choisir un autre mode", "Quitter le jeu"};
         return askChosenMode(modes);
     }
+
     /**
      * Display a question about the modes in the standard input, get response and display it
      * @param responses available responses

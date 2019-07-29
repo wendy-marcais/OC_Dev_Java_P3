@@ -6,6 +6,9 @@ import com.gameplay.wendy.Modes.RandomCombination;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * Computer player
+ */
 public class Computer extends Player {
 
     // Class variables
@@ -20,13 +23,19 @@ public class Computer extends Player {
         property = new GamePlayGetPropertyValues();
     }
 
-
+    /**
+     * @return random combination
+     */
     @Override
     // For all modes -> create te AI random combination
     public String chooseCombination() {
         return RandomCombination.generate();
     }
 
+    /**
+     * @param answer equal the human answer
+     * @return lastProposition
+     */
     @Override
     // For Defender and Duel modes -> first round AI proposition = 5555, other rounds evolution of bounds
     public String proposeNewCombination (String answer) {
@@ -44,7 +53,6 @@ public class Computer extends Player {
                     this.lower_bound[i] = Character.getNumericValue(lastProposition.charAt(i));
                     this.upper_bound[i] = Character.getNumericValue(lastProposition.charAt(i));
                 }
-
                 lastProposition2[i] = this.lower_bound[i] + ((this.upper_bound[i] - this.lower_bound[i]) / 2);
             }
             lastProposition = Arrays.toString(lastProposition2).replace("[", "").replace("]", "").replace(",", "").replaceAll(
@@ -54,6 +62,12 @@ public class Computer extends Player {
         return lastProposition;
     }
 
+    /**
+     * @param chooseCombination equal the computer random combination
+     * @param proposition equal the human proposition
+     * @return null
+     * @throws IOException
+     */
     @Override
     // For Challenger and Duel modes -> answer given character by character
     public String answerToNewCombinationProposition(String chooseCombination, String proposition) throws IOException {
@@ -68,7 +82,6 @@ public class Computer extends Player {
             }
         }
         System.out.print("\n");
-
         return null;
     }
 }

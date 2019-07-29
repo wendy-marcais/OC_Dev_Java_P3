@@ -3,11 +3,15 @@ package com.gameplay.wendy;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.Properties;
 
 public class GamePlayGetPropertyValues {
 
+    /**
+     * @param parametre
+     * @return property
+     * @throws IOException
+     */
     public String getPropValues(String parametre) throws IOException {
 
         InputStream inputStream = null;
@@ -24,8 +28,6 @@ public class GamePlayGetPropertyValues {
             } else {
                 throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
             }
-
-            Date time = new Date(System.currentTimeMillis());
 
             // get the property value and print it out
             property = prop.getProperty(parametre);
