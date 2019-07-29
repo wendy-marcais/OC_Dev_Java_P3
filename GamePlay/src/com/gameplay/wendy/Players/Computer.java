@@ -66,7 +66,7 @@ public class Computer extends Player {
      * @param chooseCombination equal the computer random combination
      * @param proposition equal the human proposition
      * @return null
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     @Override
     // For Challenger and Duel modes -> answer given character by character

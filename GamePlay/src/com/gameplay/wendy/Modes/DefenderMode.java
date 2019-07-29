@@ -27,7 +27,7 @@ public class DefenderMode implements PlayMode {
     }
 
     /**
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     @Override
     public void play() throws IOException {

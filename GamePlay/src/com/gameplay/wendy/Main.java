@@ -9,8 +9,8 @@ public class Main {
     //private static Logger logger = Logger.getLogger(Main.class);
 
     /**
-     * @param args
-     * @throws IOException
+     * @param args arguments
+     * @throws IOException if a problem is found in property
      */
     public static void main(String[] args) throws IOException {
         //logger.debug("test!");

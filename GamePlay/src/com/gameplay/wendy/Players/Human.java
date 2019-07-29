@@ -23,7 +23,7 @@ public class Human extends Player {
 
     /**
      * @return chooseCombination
-     * @throws IOException
+     * @throws IOException if the combination format written is not correct
      */
     @Override
     // For Defender and Duel modes -> save the human combination in the variable chooseCombination
@@ -53,7 +53,7 @@ public class Human extends Player {
     /**
      * @param answer equal what the human has written
      * @return chooseCombination
-     * @throws IOException
+     * @throws IOException if the combination format written is not correct
      */
     @Override
     // For Challenger and Duel modes -> save the human proposition in the variable chooseCombination
@@ -82,7 +82,7 @@ public class Human extends Player {
     /**
      * @param chooseCombination equal the human chosen combination
      * @param proposition equal to the computer proposal
-     * @return
+     * @return human answer
      */
     @Override
     // For Defender and Duel modes -> answer given in a string

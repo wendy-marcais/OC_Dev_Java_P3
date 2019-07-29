@@ -20,7 +20,7 @@ class RunGame {
     private String ruleDigits;
 
     /**
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     // Constructor
     RunGame() throws IOException {

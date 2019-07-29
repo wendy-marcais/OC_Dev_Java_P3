@@ -8,9 +8,9 @@ import java.util.Properties;
 public class GamePlayGetPropertyValues {
 
     /**
-     * @param parametre
+     * @param parametre parametre
      * @return property
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     public String getPropValues(String parametre) throws IOException {
 

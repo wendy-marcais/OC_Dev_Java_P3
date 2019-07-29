@@ -19,7 +19,7 @@ public class ChallengerMode implements PlayMode {
     private GamePlayGetPropertyValues property;
 
     /**
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     // Constructor
     public ChallengerMode() throws IOException {
@@ -30,7 +30,7 @@ public class ChallengerMode implements PlayMode {
     }
 
     /**
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     @Override
     public void play() throws IOException {

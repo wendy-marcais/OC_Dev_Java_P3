@@ -19,7 +19,7 @@ public class DuelMode implements PlayMode {
     private GamePlayGetPropertyValues property;
 
     /**
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     // Constructor
     public DuelMode() throws IOException {
@@ -30,7 +30,7 @@ public class DuelMode implements PlayMode {
     }
 
     /**
-     * @throws IOException
+     * @throws IOException if a problem is found in property
      */
     @Override
     public void play() throws IOException {
