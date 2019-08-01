@@ -104,7 +104,7 @@ class RunGame {
      * @return the different modes
      */
     private int offerSecondMenuChoiceToUser() {
-        String[] modes = {"Rejouer le même mode", "Choisir un autre mode", "Quitter le jeu"};
+        String[] modes = {"Rejouer le même mode", "Choisir un autre mode", "Quitter le jeu\n"};
         return askChosenMode(modes);
     }
 
