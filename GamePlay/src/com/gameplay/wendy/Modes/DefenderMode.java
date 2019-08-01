@@ -1,9 +1,11 @@
 package com.gameplay.wendy.Modes;
 
-import com.gameplay.wendy.GamePlayGetPropertyValues;
 import com.gameplay.wendy.Players.Computer;
 import com.gameplay.wendy.Players.Human;
 import com.gameplay.wendy.Players.Player;
+
+import com.gameplay.wendy.GamePlayGetPropertyValues;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
@@ -12,18 +14,18 @@ import java.io.IOException;
  */
 public class DefenderMode implements PlayMode {
 
-    // Class variables
-    private Player human;
-    private Player computer;
-    private String proposition = "";
+    private static Logger logger = Logger.getLogger(DefenderMode.class);
     private GamePlayGetPropertyValues property;
 
+    private Player human;
+    private Player computer;
+    private String proposition;
+
     // Constructor
-    public DefenderMode() {
+    public DefenderMode() throws IOException {
+        property = new GamePlayGetPropertyValues();
         human = new Human();
         computer = new Computer();
-        property = new GamePlayGetPropertyValues();
-
     }
 
     /**
@@ -32,24 +34,29 @@ public class DefenderMode implements PlayMode {
     @Override
     public void play() throws IOException {
         // Register human combination
-        String chooseCombination = human.chooseCombination();
+        String chosenCombination = human.chosenCombination();
         String answer = null;
 
         for (int t = 1; t <= Integer.parseInt(property.getPropValues("trials")); t++) {
             System.out.print("\n-> essai n° " + t + "\n");
+            //logger.info("\n-> essai n° " + t + "\n");
             proposition = computer.proposeNewCombination(answer);
 
-            answer = human.answerToNewCombinationProposition(chooseCombination, proposition);
+            answer = human.answerToNewCombinationProposition(chosenCombination, proposition);
 
-            // if iaProposition = registeredCombination -> end of the game
-            if (proposition.equals(chooseCombination)) {
+            // if iaProposition = chosenCombination -> end of the game
+            if (proposition.equals(chosenCombination)) {
                 System.out.println("\nDommage, l'IA a trouvé la bonne combinaison en " + t + " essais !");
+                //logger.info("\nDommage, l'IA a trouvé la bonne combinaison en " + t + " essais !");
                 break;
             }
         }
-        if (!proposition.equals(chooseCombination)) {
+        if (!proposition.equals(chosenCombination)) {
             System.out.println("\nBravo, l'IA n'a pas trouvé la bonne réponse... \nLa bonne combinaison était : " +
-                    chooseCombination + " !\n");
+                    chosenCombination + " !\n");
+            //logger.info("\nBravo, l'IA n'a pas trouvé la bonne réponse... \nLa bonne combinaison était : " +
+            //      chooseCombination + " !\n");
+
         }
     }
 }

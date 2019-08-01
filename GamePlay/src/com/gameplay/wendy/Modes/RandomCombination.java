@@ -1,6 +1,10 @@
 package com.gameplay.wendy.Modes;
 
-import java.util.Random;
+import com.gameplay.wendy.GamePlayGetPropertyValues;
+
+import java.io.IOException;
+import java.util.Arrays;
+
 
 /**
  * Random combination
@@ -8,14 +12,26 @@ import java.util.Random;
 public final class RandomCombination {
 
     /**
-     * @return random combination in string format
+     * @return randomCombination in string format
      */
-    public static String generate() {
-        // Load a combination with java.util.Random class
-        Random rand = new Random();
-        // Created var random for the random combination between 0000 and 9999
-        int random = rand.nextInt(9999);
-        // String format for comparison (commas and square brackets deleted)
-        return String.format("%04d", random);
+    public static String generate() throws IOException {
+        GamePlayGetPropertyValues property;
+        property = new GamePlayGetPropertyValues();
+
+        int[] randomCombiCreation = new int [Integer.parseInt((property.getPropValues("digits.in.combination")))];
+
+        // define the range
+        int max = 9;
+        int min = 0;
+        int range = max - min;
+
+        String[] randomCombination = new String[Integer.parseInt(property.getPropValues("digits.in.combination"))];
+
+        for (int i = 0; i < randomCombiCreation.length; i++) {
+            randomCombination[i] = String.valueOf((int)(Math.random() * range) + min);
+            // put in randomCombination each number created from loop
+            randomCombiCreation[i] = Integer.parseInt(randomCombination[i]);
+        }
+        return Arrays.toString(randomCombination).replace("[", "").replace("]", "").replace(",", "").replaceAll("\\s", "");
     }
 }
