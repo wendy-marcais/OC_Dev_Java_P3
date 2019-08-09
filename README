@@ -19,14 +19,6 @@ OU
 Sur Windows :
 pré requis (jdk installé minimum version 12)
 
--> pour compiler et lancer l'application via l'invite de commande:
-- ouvrir la console de commande
-- placez-vous dans le dossier où est enregistré votre code source
-
--> Compilation :
-- saisir la ligne de commande suivante : javac Main.java 
-
--> Exécution :
-- saisir la ligne de commande suivante à la suite de la précédente : java Main
-OU
+- ouvrir IDE
+- Importer le projet
 - ouvrir son projet, se placer dans la classe Main.java puis Run 'Main.main()';
