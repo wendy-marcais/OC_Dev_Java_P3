@@ -52,10 +52,8 @@ public class Computer extends Player {
         if (answer == null) {
             // Give value 5 for each character in the first proposition
             Arrays.fill(firstCombination,5);
-            System.out.print("Proposition de l'IA : " + Arrays.toString(firstCombination).replace("[", "").replace("]", "")
-                    .replace(",", "").replaceAll("\\s", "") + "\n");
-            //logger.info("Proposition de l'IA : " + Arrays.toString(firstCombination).replace("[", "").replace("]", "")
-            //                    .replace(",", "").replaceAll("\\s", "") + "\n");
+            logger.info("Proposition de l'IA : " + Arrays.toString(firstCombination).replace("[", "").replace("]", "")
+                    .replace(",", "").replaceAll("\\s", ""));
             lastProposition = firstCombination;
         } else {
             for (int i = 0; i < lastProposition.length; i++) {
@@ -70,10 +68,9 @@ public class Computer extends Player {
                 lastProposition2[i] = this.lower_bound[i] + ((this.upper_bound[i] - this.lower_bound[i]) / 2);
             }
             lastProposition = lastProposition2;
-            System.out.print("Proposition de l'IA : " + Arrays.toString(lastProposition).replace("[", "").replace(
-                    "]", "").replace(",", "").replaceAll("\\s", "") + "\n");
-            //logger.info("Proposition de l'IA : " + Arrays.toString(lastProposition).replace("[", "").replace(
-            //                    "]", "").replace(",", "").replaceAll("\\s", "") + "\n");
+
+            logger.info("Proposition de l'IA : " + Arrays.toString(lastProposition).replace("[", "").replace(
+                    "]", "").replace(",", "").replaceAll("\\s", ""));
         }
         return Arrays.toString(lastProposition).replace("[", "").replace("]", "").replace(",", "").replaceAll("\\s", "");
     }
@@ -87,8 +84,7 @@ public class Computer extends Player {
     @Override
     // For Challenger and Duel modes -> answer given character by character
     public String answerToNewCombinationProposition(String chosenCombination, String proposition) throws IOException {
-        System.out.print("Réponse de l'IA : ");
-        //logger.info("Réponse de l'IA : ");
+        logger.info("Réponse de l'IA : ");
         for (int i = 0; i < Integer.parseInt(property.getPropValues("digits.in.combination")); i++) {
             if (proposition.charAt(i) > chosenCombination.charAt(i)) {
                 System.out.print("+");

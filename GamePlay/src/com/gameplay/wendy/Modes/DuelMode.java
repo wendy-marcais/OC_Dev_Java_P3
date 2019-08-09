@@ -45,34 +45,28 @@ public class DuelMode implements PlayMode {
         // if dev mode is active
         GamePlayGetPropertyValues gamePlayGetPropertyValues = new GamePlayGetPropertyValues();
         if (gamePlayGetPropertyValues.getPropValues("dev.mode").equals("true")) {
-            System.out.println("\n(Mode développeur activé -> la combinaison de l'IA est : " + randCombination + ")");
-            //logger.info("\n(Mode développeur activé -> la combinaison de l'IA est : " + randCombination + ")");
+            logger.info("\n(Mode développeur activé -> la combinaison de l'IA est : " + randCombination + ")");
         }
 
         for (int t = 1; t <= Integer.parseInt(property.getPropValues("trials")); t++) {
             // When Human play
-            System.out.print("\n-> Votre tour, essai n° " + t + " : \n");
-            //logger.info("\n-> Votre tour, essai n° " + t + " : \n");
+            logger.info("\n-> Votre tour, essai n° " + t + " :");
             String humanProposal = human.proposeNewCombination(answer2);
             answer2 = computer.answerToNewCombinationProposition(humanProposal, randCombination);
 
             // When Computer play
             String computerProposal;
-            System.out.print("\n-> Tour de l'IA, essai n° " + t + " : \n");
-            //logger.info("\n-> Tour de l'IA, essai n° " + t + " : \n");
+            logger.info("\n-> Tour de l'IA, essai n° " + t + " :");
             computerProposal = computer.proposeNewCombination(answer);
 
             answer = human.answerToNewCombinationProposition(chosenCombination, computerProposal);
 
             if (humanProposal.equals(randCombination)) {
-                System.out.println("\nBravo, la bonne combinaison était : " + randCombination + ".");
-                //logger.info("\nBravo, la bonne combinaison était : " + randCombination + ".");
-                System.out.println("Vous avez trouvé la bonne réponse avant l'IA, en " + t + " essais !");
-                //logger.info("Vous avez trouvé la bonne réponse avant l'IA, en " + t + " essais !");
+                logger.info("\nBravo, la bonne combinaison était : " + randCombination + " !");
+                logger.info("Vous avez trouvé la bonne réponse avant l'IA, en " + t + " essais !");
                 break;
             } else if (computerProposal.equals(chosenCombination)) {
-                System.out.println("\nDommage, l'IA a trouvé votre combinaison (" + chosenCombination + ") avant vous, en " + t + " essais !");
-                //logger.info("\nDommage, l'IA a trouvé votre combinaison (" + chooseCombination + ") avant vous, en " + t + " essais !");
+                logger.info("\nDommage, l'IA a trouvé votre combinaison (" + chosenCombination + ") avant vous, en " + t + " essais !");
                 break;
             }
         }

@@ -39,8 +39,7 @@ public class Human extends Player {
         boolean responseIsGood;
         do {
             try {
-                System.out.print("\nMerci d'entrer une combinaison à " +  property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
-                //logger.info("\nMerci d'entrer une combinaison à " +  property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
+                logger.info("\nMerci d'entrer une combinaison à " +  property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
                 // Finds and returns the next complete token from this scanner
                 chosenCombination = scanner.next();
                 // Regex to verify the combination's content
@@ -50,8 +49,7 @@ public class Human extends Player {
                 responseIsGood = false;
             }
             if (!responseIsGood) {
-                System.out.print("\n-> Votre combinaison n'est pas valide !");
-                //logger.error("\n-> Votre combinaison n'est pas valide !");
+                logger.error("\n-> Votre combinaison n'est pas valide !");
             }
         } while (!responseIsGood);
         return chosenCombination;
@@ -70,8 +68,7 @@ public class Human extends Player {
         boolean responseIsGood;
         do {
             try {
-                System.out.print("Votre proposition : ");
-                //logger.info("Votre proposition : ");
+                logger.info("Votre proposition : ");
                 // Finds and returns the next complete token from this scanner
                 chosenCombination = scanner.next();
                 // Regex to verify the combination's content
@@ -81,8 +78,7 @@ public class Human extends Player {
                 responseIsGood = false;
             }
             if (!responseIsGood) {
-                System.out.print("\n-> Votre proposition doit être composée de " + property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
-                //logger.error("\n-> Votre proposition doit être composée de " + property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
+                logger.error("\n-> Votre proposition doit être composée de " + property.getPropValues("digits.in.combination") + " chiffres compris entre 0 et 9 : ");
             }
         } while (!responseIsGood);
         return chosenCombination;
@@ -96,10 +92,8 @@ public class Human extends Player {
     @Override
     // For Defender and Duel modes -> answer given in a string
     public String answerToNewCombinationProposition(String chosenCombination, String proposition ) {
-        System.out.println("Votre combinaison : " + chosenCombination);
-        //logger.info("Votre combinaison : " + chosenCombination);
-        System.out.print("Votre réponse : ");
-        //logger.info("Votre réponse : ");
+        logger.info("Votre combinaison : " + chosenCombination);
+        logger.info("Votre réponse : ");
         return scanner.next();
     }
 }

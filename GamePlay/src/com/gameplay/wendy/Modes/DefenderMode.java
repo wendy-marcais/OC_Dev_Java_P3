@@ -38,25 +38,20 @@ public class DefenderMode implements PlayMode {
         String answer = null;
 
         for (int t = 1; t <= Integer.parseInt(property.getPropValues("trials")); t++) {
-            System.out.print("\n-> essai n° " + t + "\n");
-            //logger.info("\n-> essai n° " + t + "\n");
+            logger.info("\n-> essai n° " + t);
             proposition = computer.proposeNewCombination(answer);
 
             answer = human.answerToNewCombinationProposition(chosenCombination, proposition);
 
             // if iaProposition = chosenCombination -> end of the game
             if (proposition.equals(chosenCombination)) {
-                System.out.println("\nDommage, l'IA a trouvé la bonne combinaison en " + t + " essais !");
-                //logger.info("\nDommage, l'IA a trouvé la bonne combinaison en " + t + " essais !");
+                logger.info("\nDommage, l'IA a trouvé la bonne combinaison en " + t + " essais !");
                 break;
             }
         }
         if (!proposition.equals(chosenCombination)) {
-            System.out.println("\nBravo, l'IA n'a pas trouvé la bonne réponse... \nLa bonne combinaison était : " +
+            logger.info("\nBravo, l'IA n'a pas trouvé la bonne réponse... \nLa bonne combinaison était : " +
                     chosenCombination + " !\n");
-            //logger.info("\nBravo, l'IA n'a pas trouvé la bonne réponse... \nLa bonne combinaison était : " +
-            //      chooseCombination + " !\n");
-
         }
     }
 }
