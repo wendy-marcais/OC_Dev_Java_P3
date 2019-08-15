@@ -111,7 +111,7 @@ class RunGame {
      * @return the number of the selected choice
      */
     private int askChosenMode(String[] responses) {
-        logger.info("Merci de choisir un mode de jeu parmis les choix suivants :\n");
+        logger.info("\nMerci de choisir un mode de jeu parmis les choix suivants :\n");
         for (int i = 1; i <= responses.length; i++) {
             logger.info(i + " - " + responses[i - 1]);
         }
